@@ -7,6 +7,7 @@ const errorMiddleware = require("./middlewares/error-middleware");
 const contactRoute = require('./router/contact-router');
 const cors = require('cors');
 
+app.use(express.json());
 const corsOptions = {
     origin: 'http://localhost:5173',  // Specify the client origin
     methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Add the methods that the server should accept
@@ -17,7 +18,6 @@ app.use("/api/auth", authRoute);
 app.use("/api/form", contactRoute);
 
 
-app.use(express.json());
 // app.get("/", (req, res) => {
 //     return res.status(200).send("Welcome to the MERN Stack Development!");
 // })
