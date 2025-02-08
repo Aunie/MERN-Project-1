@@ -1,0 +1,109 @@
+/* src/style.css or src/styles/style.css */
+
+.custom-navbar-bg {
+    background-color: rgb(62, 48, 139) !important; /* You can customize the blue shade here */
+  }
+  
+  .custom-navbar-text {
+    color: white; /* To make sure the navbar text is white */
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+  }
+
+  .nav-link.active {
+    color: orange !important; /* Makes active links orange */
+    font-weight: bold; /* Optional: Makes the active link bold */
+  }
+
+  body {
+    background-color: black;
+    color: white; /* This will change text color to white for contrast */
+    margin: 0; /* Ensure no margin around the body */
+    padding: 0; /* Remove any default padding around the body */
+  }
+  
+
+  /* style.css */
+
+/* Container holding both image and form */
+.registration-container {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Left half for image */
+.registration-image {
+  flex: 1;
+  background-color: #f0f0f0; /* Optional: Light background for image area */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registration-image img {
+  max-width: 100%; /* Ensure the image covers half the space */
+  height: auto;
+}
+
+/* Right half for form */
+.registration-form {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form styling */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.submit-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.custom-button{
+  background-color: #3e308b;
+}
+
