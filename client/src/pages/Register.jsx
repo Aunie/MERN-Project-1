@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import '../assets/css/style.css';
+import {useNavigate} from 'react-router-dom';
+import {useAuth} from '../store/auth';
+
+const URL = "http://localhost:5000/api/auth/register";
 
 const Register = () => {
 
@@ -10,6 +14,8 @@ const Register = () => {
     password: '',
   });
 
+  const navigate = useNavigate();
+  const {storetokenInLS} = useAuth();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser((prevData) => ({
@@ -23,7 +29,7 @@ const Register = () => {
     // Handle form submission here (e.g., send to an API)
     console.log('Form submitted', user);
     try {
-      const response = await fetch("http://localhost:5000/api/auth/register", {
+      const response = await fetch(URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -34,8 +40,13 @@ const Register = () => {
 
       if (response.ok) {
         const responseData = await response.json();
+
+        // Store JWT token in local storage
+        storetokenInLS(responseData.token);
+
         alert("registration successful");
         setUser({ username: "", email: "", phone: "", password: "" });
+        navigate('/login'); // Redirect to login page after successful registration
         console.log(responseData);
       } else {
         console.log("error inside response ", "error");
