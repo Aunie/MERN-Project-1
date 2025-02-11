@@ -64,6 +64,23 @@ const login = async(req, res) => {
     }
 }
 
+// User Logic
+
+const user = async(req, res) => {
+    try {
+        const userData = req.user;
+        console.log(userData);  // to test if req.user is working properly
+        res.status(200).json({userData});
+
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        res.status(200).json(user);
+    } catch (error) {
+        console.log(`Error from the User Route ${error.message}`);
+    }
+}
 
 
-module.exports = {home,register,login}
+module.exports = {home,register,login,user}

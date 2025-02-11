@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { useAuth } from '../store/auth';
 
 const About = () => {
+  const [userData, setUserData] = useState(true);
+  const {user} = useAuth();
+  console.log(user);
+
+
   return (
     <>
     <main>
@@ -9,7 +15,9 @@ const About = () => {
         <div className="container grid grid-two-cols">
           <div className="hero-content">
             {/* <p>We care to cure your Health</p> */}
-
+            <p>Welcome, 
+              <strong>{user ? `${user.username}` : `to our website`}</strong>
+            </p>
             <h1>Why Choose Us? </h1>
             <p>
               Expertise: Our team consists of experienced IT professionals who
