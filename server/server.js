@@ -9,7 +9,7 @@ const cors = require('cors');
 
 app.use(express.json());
 const corsOptions = {
-    origin: 'http://localhost:5173',  // Specify the client origin
+    origin: 'http://localhost:5174',  // Specify the client origin
     methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Add the methods that the server should accept
     credentials: true,  // Allow cookies, if you're using them
   };
