@@ -51,7 +51,7 @@ const About = () => {
           </div>
           <div className="hero-image">
             <img
-              src="/images/about.png"
+              src="https://images.pexels.com/photos/30738579/pexels-photo-30738579/free-photo-of-close-up-of-green-spruce-branch-in-forest.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               alt="coding buddies "
               width="400"
               height="500"
