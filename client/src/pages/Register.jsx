@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../assets/css/style.css';
 import {useNavigate} from 'react-router-dom';
 import {useAuth} from '../store/auth';
+import {toast } from 'react-toastify';
 
 const URL = "http://localhost:5000/api/auth/register";
 
@@ -36,20 +37,20 @@ const Register = () => {
         },
         body: JSON.stringify(user),
       });
-      console.log("response data : ", response);
+      const responseData = await response.json();
+      console.log("response data : ", responseData.extraDetails);
 
       if (response.ok) {
-        const responseData = await response.json();
 
         // Store JWT token in local storage
         storetokenInLS(responseData.token);
 
-        alert("registration successful");
+        toast.success("Registration Successful");
         setUser({ username: "", email: "", phone: "", password: "" });
-        navigate('/login'); // Redirect to login page after successful registration
+        navigate('/'); // Redirect to login page after successful registration
         console.log(responseData);
       } else {
-        console.log("error inside response ", "error");
+        toast.error(responseData.extraDetails ? responseData.extraDetails : responseData.message)
       }
     } catch (error) {
       console.error("Error", error);

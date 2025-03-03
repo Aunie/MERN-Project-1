@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import {useNavigate} from 'react-router-dom';
 import {useAuth} from '../store/auth';
+import {toast } from 'react-toastify';
+
+
 const URL = "http://localhost:5000/api/auth/login";
 
 const Login = () => {
@@ -33,17 +36,17 @@ const Login = () => {
         body: JSON.stringify(user),
       });
       console.log("Login Response : ", response);
+      const responseData = await response.json();
 
       if (response.ok) {
-        const responseData = await response.json();
         // Store JWT token in local storage
         storetokenInLS(responseData.token);
-        alert("Login Successful");
+        toast.success("Login Successful");
         setUser({ email: "", password: "" });
         navigate('/'); // Redirect to login page after successful registration
         console.log(responseData);
       } else {
-        alert("Invalid Credentials")
+        toast.error(responseData.extraDetails ? responseData.extraDetails : responseData.message)
         console.log("Invalid credentials");
       }
     } catch (error) {
