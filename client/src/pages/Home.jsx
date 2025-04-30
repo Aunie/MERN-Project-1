@@ -17,7 +17,7 @@ const Home = () => {
               we specialize in providing innovative IT services and solutions
               tailored to meet your unique needs.
             </p>
-            <div class="btn-group">
+            <div className="btn-group">
   <NavLink to="/contact" className="btn">Connect Now</NavLink>
   <NavLink to="/services" className="btn secondary-btn">Learn More</NavLink>
 </div>

@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { useAuth } from '../store/auth';
 
 const About = () => {
+  const [userData, setUserData] = useState(true);
+  const {user} = useAuth();
+  console.log(user);
+
+
   return (
     <>
     <main>
@@ -9,7 +15,9 @@ const About = () => {
         <div className="container grid grid-two-cols">
           <div className="hero-content">
             {/* <p>We care to cure your Health</p> */}
-
+            <p>Welcome, 
+              <strong>{user ? `${user.username}` : `to our website`}</strong>
+            </p>
             <h1>Why Choose Us? </h1>
             <p>
               Expertise: Our team consists of experienced IT professionals who
@@ -43,7 +51,7 @@ const About = () => {
           </div>
           <div className="hero-image">
             <img
-              src="/images/about.png"
+              src="https://images.pexels.com/photos/30738579/pexels-photo-30738579/free-photo-of-close-up-of-green-spruce-branch-in-forest.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               alt="coding buddies "
               width="400"
               height="500"

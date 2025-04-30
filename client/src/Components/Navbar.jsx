@@ -2,8 +2,10 @@ import React from 'react';
 import { NavLink  } from 'react-router-dom'; // Import Link for navigation
 import "bootstrap-icons/font/bootstrap-icons.css";
 import '../assets/css/style.css'
-
+import { useAuth } from '../store/auth';
 const Navbar = () => {
+
+  const {isLoggedIn} = useAuth();
   return (
     <nav className="navbar navbar-expand-lg navbar-light custom-navbar-bg w-100">
   <NavLink className="navbar-brand text-white" to="/">
@@ -54,7 +56,18 @@ const Navbar = () => {
           Service
         </NavLink>
       </li>
-      <li className="nav-item">
+
+      {isLoggedIn ?  <li className="nav-item">
+        <NavLink
+          to="/logout"
+           className={({ isActive }) => (isActive ? 'nav-link text-white active' : 'nav-link text-white')}
+        >
+          Logout
+        </NavLink>
+      </li>
+      : 
+      <>
+        <li className="nav-item">
         <NavLink
           to="/register"
            className={({ isActive }) => (isActive ? 'nav-link text-white active' : 'nav-link text-white')}
@@ -70,6 +83,11 @@ const Navbar = () => {
           Login
         </NavLink>
       </li>
+      </>
+      }
+      
+
+      
     </ul>
   </div>
 </nav>

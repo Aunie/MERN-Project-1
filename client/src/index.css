@@ -523,3 +523,96 @@ a.active {
     }
   }
 }
+
+/* Container to hold all the sections */
+.section-services {
+  padding: 40px 0;
+}
+
+/* Main heading style */
+.main-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #a93232;
+}
+
+/* React Toastify */
+.toastBody {
+  font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
+  font-size: 3.7rem !important;
+}
+
+/* Grid layout for the cards */
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-three-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* Card styling */
+.card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* Card Image styling */
+.card-img img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+/* Card Details Section */
+.card-details {
+  padding: 20px;
+}
+
+.card-details h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card-details p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.card-details .grid-two-cols p {
+  font-weight: bold;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .grid-three-cols {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-three-cols {
+    grid-template-columns: 1fr;
+  }
+}
